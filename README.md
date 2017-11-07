@@ -30,6 +30,6 @@ Example of an Cordova Mobile app that leverage the e5 Anywhere Angular Component
 
 
 
-##### *Note: Required Kendo libraries are not included in this public repository
-Contact e5 Workflow to get the full mobile application.*
+*Note: Required Kendo libraries are not included in this public repository.*
+*Contact e5 Workflow to get the full mobile application.*
 
