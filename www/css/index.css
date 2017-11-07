@@ -192,3 +192,14 @@ e5-task {
     width: 60px;
 }
 
+.e5-search th:first-child, .e5-search th:nth-child(1), .e5-search table td:first-child {
+    min-width: 70px;
+    width: 80px;
+}
+
+.e5-search .k-grid-header .k-header:first-child, .e5-search .k-grid tbody td:first-child, .e5-search .k-grid tfoot td:first-child {
+    min-width: 70px;
+    width: 80px;
+    box-sizing: border-box;
+    padding: 2px;
+}
