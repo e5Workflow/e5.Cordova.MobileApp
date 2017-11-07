@@ -1,0 +1,379 @@
+.e5YammerForm {
+}
+.e5YammerForm input[type='text'] {
+    width: 300px;
+}
+
+.e5YammerForm .k-dropdown {
+    width: 100%;
+    min-width: 300px;
+    max-width: 1000px;
+}
+
+.e5YammerForm textarea {
+    width: 100%;
+    min-width: 300px;
+    max-width: 1000px;
+    height: 200px;
+}
+
+.e5YammerForm input.k-invalid,  .e5YammerForm textarea.k-invalid {
+    border-bottom-color:1px indianred;
+}
+
+input[type="text"]:disabled {
+    background: #dddddd;
+}
+.e5YammerForm .e5Icon {
+    font-size: 17pt;
+}
+.e5YammerForm .editor {
+    margin-top:4px;
+}
+.e5YammerForm .e5TemplateList {
+    max-height: 85px;
+    overflow-y: auto;
+    width: 60%;
+    min-width: 300px;
+    padding: 4px 4px 4px 7px;
+}
+.e5YammerForm .e5Filter {
+    float:right;
+}
+.e5YammerForm .e5Filter input {
+    border: 0px ;
+    border-bottom:1px solid #ddd ;
+    font-size:90% ;
+    margin:2px 0px 2px 0px;
+}
+.e5YammerForm .e5Templates:hover .e5Filter {
+    color: inherit;
+}
+.e5YammerForm .e5InputError {
+    position:relative;
+    right:0;
+}
+.e5YammerForm .inline-editor {
+    min-width:480px;
+    min-height:100px;    
+    max-height:250px;
+}
+
+#addYammerPost { margin: 10px 0 0 0;}
+body {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 10pt;
+    padding-top: 50px; /* needed for bootstrap fixed menu */
+    padding-bottom: 30px;
+}
+
+.code {
+    font-family:'Courier New';
+    font-size:80%;
+}
+
+input.guid {
+    font-family:'Courier New';
+    width:270pt;
+}
+
+.navbar-default, .navbar-brand, .navbar-default .navbar-nav > li > a {
+  background-color:#3295d2;
+  color: #FFF !important;
+  background-image: none;
+  height: inherit;
+ }
+
+.navbar-brand:hover, .navbar-brand:focus, .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus  {
+    color: #DDD !important;
+    background-color: transparent;
+}
+
+.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
+    color: #DDD;
+    background-color: #1985c8 !important;
+    background-image: none;
+}
+
+.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a {
+    color: #DDD;
+    background-color: #1985c8;
+    background-image: none;
+}
+
+.navbar-default .navbar-nav .open .dropdown-menu > li > a {
+    color: #FFF !important;
+}
+
+.navbar-default .navbar-nav .open .dropdown-menu > li > a:hover {
+    color: #DDD !important;
+}
+
+.dropdown-menu {
+    background-color: #1985c8 !important;
+    background-image: none;
+}
+
+.dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {
+    background-image: none;
+    background-color: #1985c8 !important;
+}
+body {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 10pt;
+    padding-top: 50px; /* needed for bootstrap fixed menu */
+    padding-bottom: 30px;
+}
+
+.code {
+    font-family:'Courier New';
+    font-size:80%;
+}
+
+input.guid {
+    font-family:'Courier New';
+    width:270pt;
+}
+
+.navbar-default, .navbar-brand, .navbar-default .navbar-nav > li > a {
+  background-color:#3295d2;
+  color: #FFF !important;
+  background-image: none;
+  height: inherit;
+ }
+
+.navbar-brand:hover, .navbar-brand:focus, .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus  {
+    color: #DDD !important;
+    background-color: transparent;
+}
+
+.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
+    color: #DDD;
+    background-color: #1985c8 !important;
+    background-image: none;
+}
+
+.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a {
+    color: #DDD;
+    background-color: #1985c8;
+    background-image: none;
+}
+
+.navbar-default .navbar-nav .open .dropdown-menu > li > a {
+    color: #FFF !important;
+}
+
+.navbar-default .navbar-nav .open .dropdown-menu > li > a:hover {
+    color: #DDD !important;
+}
+
+.dropdown-menu {
+    background-color: #1985c8 !important;
+    background-image: none;
+}
+
+.dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {
+    background-image: none;
+    background-color: #1985c8 !important;
+}
+e5-field-set .e5-label, .e5-input-checkbox-span {display:block;width:200px}
+e5-field-set .e5-input {width:200px}
+e5-field-set .e5-input-textarea {width:100%}
+e5-field-set .fields {float: left; height:70px}
+
+/*validation*/
+e5-field-set input.ng-invalid {
+    border-left: 3px solid #ff0000;
+    background-color: #FFEBD6;
+}
+
+.e5-control .envelope-icon::before {
+    content: "\2709";
+    font-size: 200%;
+}
+.e5-control .reload-icon::before {
+    content: "\21bb";
+    font-size: 110%;
+}        
+.e5-control .sla-expired-icon::before {
+    content: "\25C6";
+    font-size: 200%;
+    color: #B5300C;
+}
+.e5-control .sla-within-icon::before {
+    content: "\25C6";
+    font-size: 200%;
+    color: #12AC22;
+}
+.e5-search .k-grid-content {
+    min-height: 50px;
+}
+
+/*
+    Styles common to all dialogs.
+*/
+
+.e5Dialog .e5DialogGroup {
+    margin-bottom:10px;
+}
+.e5Dialog .e5DiariseReasonDropDown {
+    margin-bottom:10px;
+    width:230px
+}
+e5Dialog .e5DiariseCalendar {
+    width:250px;
+}
+.e5Dialog .e5DiariseTimePicker {
+    width:230px;
+}
+.e5Dialog .e5DialogError {
+    display:inline-block;
+    margin-top:10px;
+    color: orangered;
+    width:250px;
+}
+.e5Dialog .k-dropdown  {
+    width:100%;
+} 
+
+
+.e5DialogDiarise .e5DiariseReasonDropDown {
+    margin-bottom:10px;
+    width:230px
+}
+e5DialogDiarise .e5DiariseCalendar {
+    width:250px;
+}
+.e5DialogDiarise .e5DiariseTimePicker {
+    width:230px;
+}
+.e5DialogDiarise .e5DialogError {
+    display:inline-block;
+    margin-top:10px;
+    color: orangered;
+    width:250px;
+}
+
+.e5EmailForm {
+}
+.e5EmailForm input[type='text'], .e5EmailForm .k-dropdown {
+    width: 100%;
+}
+.e5EmailForm input.k-invalid {
+    border-bottom-color:1px indianred;
+}
+input[type="text"]:disabled {
+     background: #dddddd;
+}
+.e5EmailForm .e5Icon {
+    font-size: 17pt;
+}
+.e5EmailForm .editor {
+    margin-top:4px;
+}
+.e5EmailForm .e5AttachmentList {
+    max-height: 85px;
+    overflow-y:auto;
+    width:100% ;
+    padding:4px 4px 4px 7px ;
+}
+.e5EmailForm .e5Filter {
+    float:right;
+}
+.e5EmailForm .e5Filter input {
+    border: 0px ;
+    border-bottom:1px solid #ddd ;
+    font-size:90% ;
+    margin:2px 0px 2px 0px;
+}
+.e5EmailForm .e5Attachments:hover .e5Filter {
+    color: inherit;
+}
+.e5EmailForm .e5InputError {
+    position:relative;
+    right:0;
+}
+.blockUI.blockOverlay {
+    opacity: 0.2 !important;
+}
+.blockUI.blockMsg  {
+    opacity: 0.9 !important;
+    border: 1px solid black !important;
+    padding:10px !important;
+}
+.e5EmailForm .inline-editor {
+    min-width:480px;
+    min-height:100px;    
+    max-height:250px;
+}
+/*
+ *   Grid layout (note widths add up to total e-mail width).
+ */
+/*
+.e5EmailForm .e5Heading {
+    clear:both;
+    width:100px;
+    display:inline-block;
+}
+.e5EmailForm input[type='text'] {
+    width:500px;
+    display:inline-block; 
+    margin-top:4px;
+}
+*/
+.e5attachmentsGrid .upload-item {
+    margin-bottom:3px ;
+}
+.e5attachmentsGrid .upload-panel {
+    margin-bottom:3px ;
+}
+.e5attachmentsGrid .drop-zone {
+    border: 1px ;
+    padding: 3px ;
+    box-sizing:content-box;
+}
+.e5attachmentsGrid .file-over {
+    border: 1px dashed lightsalmon
+}
+.e5attachmentsGrid .file-input {
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+.e5attachmentsGrid .upload-button {
+	cursor: pointer; /* "hand" cursor */
+    padding: 3px 7px 3px 7px;
+}
+.e5attachmentsGrid {
+}
+
+/*.e5attachmentsGrid .k-grid table tr:hover td {
+    background: #cde6f7 !important;
+    cursor: pointer !important;
+}*/
+
+/*.e5attachmentsGrid .k-grid-filter
+{
+    display: none;
+}*/
+
+.e5attachmentsGrid .text-right {
+    text-align: right;
+}
+
+.e5attachmentsGrid .k-button .fa {
+    font-size: inherit;
+    line-height: inherit;
+    width: auto;
+    height: auto;
+    margin-left: 0;
+}
+
+.e5attachmentsGrid .k-grid tbody button.k-button {
+    min-width: 12px;
+    width: 23px;
+    height: 25px;
+}

@@ -1,0 +1,194 @@
+* {
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+html {
+    background-color: #444;
+}
+
+body {
+    -webkit-touch-callout: none;
+    -webkit-text-size-adjust: none;
+    -webkit-user-select: none;
+    background-color: #444;
+    background-attachment: fixed;
+    font-family: 'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
+    font-size: 18px;
+    height: 100%;
+    margin: 0px;
+    padding: 20px 0 0 0;
+    width: 100%;
+    font-family: 'RobotoRegular', 'Droid Sans', 'Segoe UI', Segoe, 'San Francisco', 'Helvetica Neue', Helvetica, Arial, Geneva, sans-serif;
+    font-size: 12px;
+    color:#FFF;
+}
+
+.app {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    height: 50px;
+    width: 225px;
+    text-align: center;
+    margin: 0 0 0 -112px;
+    /*padding: 180px 0px 0px 0px;     
+    margin: -115px 0px 0px -112px;*/
+}
+
+@media screen and (min-aspect-ratio: 1/1) and (min-width:400px) {
+    .app {
+        background-position:left center;
+        /*padding:75px 0px 75px 170px;
+        margin:-90px 0px 0px -198px;*/
+    }
+}
+
+h1 {
+    font-size:24px;
+    font-weight:normal;
+    margin:0px;
+    overflow:visible;
+    padding:0px;
+    text-align:center;
+}
+
+.event {
+    border-radius:4px;
+    -webkit-border-radius:4px;
+    color:#FFFFFF;
+    font-size:12px;
+    margin:0px 30px;
+    padding:2px 0px;
+}
+
+.event.listening {
+    display:block;
+}
+
+.event.received {
+    display:none;
+}
+
+@keyframes fade {
+    from { opacity: 1.0; }
+    50% { opacity: 0.4; }
+    to { opacity: 1.0; }
+}
+ 
+@-webkit-keyframes fade {
+    from { opacity: 1.0; }
+    50% { opacity: 0.4; }
+    to { opacity: 1.0; }
+}
+ 
+.blink {
+    animation:fade 3000ms infinite;
+    -webkit-animation:fade 3000ms infinite;
+}
+
+
+.MobileButton, .upload-button {
+    width: 100%;
+    height: 60px;
+    vertical-align: middle;
+    font-size: 24px;
+    font-size: 6vw;
+    font-size-vw-info: url(https://stackoverflow.com/questions/16056591/font-scaling-based-on-width-of-container);
+    font-weight: normal;
+    padding: 8px 7px 3px 7px;
+    text-align: left;
+}
+
+.MobileButton .buttonText {
+    margin: -4px 0 0 18px;
+    float: left;
+}
+
+.upload-button .buttonText {
+    margin: 0 0 0 18px;
+    float: left;
+}
+
+.MobileButton .fa {
+    display: inline;
+    text-align: left;
+}
+
+.buttonIcon {
+    float: left;
+    padding: 7px;
+}
+
+.upload-button i {
+    width: 33px;
+    float: left;
+}
+
+.upload-button i {
+    margin: 8px 0 0 10px;
+}
+
+.e5attachmentsGrid .upload-button {
+    padding: 8px 7px 3px 7px;
+    border-radius: 5px;
+    
+}
+
+.e5attachmentsGrid .drop-zone {
+    padding: 0;
+}
+.e5attachmentsGrid button {
+width:49%;
+height:30px;
+}
+
+.e5attachmentsGrid .upload-item {
+    margin: 5px 0 14px 0;
+    font-size: 20px;
+}
+
+.e5attachmentsGrid button.btn-success {
+    float:right;
+}
+
+.e5attachmentsGrid .k-grid {
+margin:10px 0 0 0;
+}
+
+.control-label {
+    color: #FFF;
+}
+
+.imgContainer {
+    margin: 20px 5px 0 0;
+    width: 31%;
+    float: left;
+}
+    
+.imgPreview {
+    margin: -30px 0 0 0;
+    width: 95%;
+    float: left;
+}
+.imgStatus {
+    margin: 0;
+    font-size: 30px;
+    float: left;
+}
+
+e5-task .layout-wrap {
+    border-radius: 4px;
+}
+
+e5-task {
+    font-size: 12pt;
+}
+
+
+.k-grid tbody button.k-button {
+    min-width: 60px;
+}
+.e5-search .k-button {
+    width: 60px;
+}
+

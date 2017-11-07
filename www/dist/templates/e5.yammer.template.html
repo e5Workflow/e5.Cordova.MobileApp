@@ -1,0 +1,32 @@
+    <div class="panel-group" id="conversation_yammer">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <a ng-click="onToggleYammer();">
+                    <div class="conversationHeaderYammer">
+                        <img src="https://www.yammer.com/favicon.ico" /> Yammer Conversation
+                    </div>
+                </a>
+            </div>
+            <div id="collapse_yammer" class="k-panel">
+                <div class="panel-body conversationBlock" conversationId="yammerConversation" ng-hide="hideYammer">
+                    <div id="embedded-feed" ng-hide="hideYammer" style="height:600px;width:100%;"></div>
+                    <script>
+                        yam.connect.embedFeed({
+                            "feedType": "topic",
+                            "feedId": 24072104,
+                            "config": {
+                                "use_sso": false,
+                                "header": false,
+                                "footer": false,
+                                "showOpenGraphPreview": false,
+                                "defaultToCanonical": false,
+                                "hideNetworkName": false
+                            },
+                            "container": "#embedded-feed"
+                        });
+                    </script>
+                </div>
+            </div>
+        </div>
+    </div>
+

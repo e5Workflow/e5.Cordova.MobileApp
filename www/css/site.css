@@ -1,0 +1,174 @@
+body {
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+/* Wrapping element */
+/* Set some basic padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+/* Set widths on the form inputs since otherwise they're 100% wide */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+/* Carousel */
+.carousel-caption p {
+    font-size: 20px;
+    line-height: 1.4;
+}
+
+/* Make .svg files in the carousel display properly in older browsers */
+.carousel-inner .item img[src$=".svg"]
+{
+    width: 100%;
+}
+
+/* Hide/rearrange for smaller screens */
+@media screen and (max-width: 767px) {
+  /* Hide captions */
+  .carousel-caption {
+    display: none
+  }
+}
+
+
+/* reset everything to the default box model */
+
+*, :before, :after
+{
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+}
+
+/* set a border-box model only to elements that need it */
+
+.form-control, /* if this class is applied to a Kendo UI widget, its layout may change */
+.container,
+.container-fluid,
+.row
+{
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.col-xs-1, .col-sm-1, .col-md-1, .col-lg-1,
+.col-xs-2, .col-sm-2, .col-md-2, .col-lg-2,
+.col-xs-3, .col-sm-3, .col-md-3, .col-lg-3,
+.col-xs-4, .col-sm-4, .col-md-4, .col-lg-4,
+.col-xs-5, .col-sm-5, .col-md-5, .col-lg-5,
+.col-xs-6, .col-sm-6, .col-md-6, .col-lg-6,
+.col-xs-7, .col-sm-7, .col-md-7, .col-lg-7,
+.col-xs-8, .col-sm-8, .col-md-8, .col-lg-8,
+.col-xs-9, .col-sm-9, .col-md-9, .col-lg-9,
+.col-xs-10, .col-sm-10, .col-md-10, .col-lg-10,
+.col-xs-11, .col-sm-11, .col-md-11, .col-lg-11,
+.col-xs-12, .col-sm-12, .col-md-12, .col-lg-12
+{
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding:0px;
+}
+
+.k-datetimepicker {
+    font-size: 14px; 
+}
+
+/*TODO: this was done to prevent incorrect floating breaks - investigate a better way to prevent datetime controls to float-break other controls*/
+.k-autocomplete .k-input, .k-dropdown-wrap .k-input, .k-numeric-wrap .k-input, .k-picker-wrap .k-input, .k-selectbox .k-input, .k-textbox>input 
+{
+    height: 1.70em;
+}
+
+
+/* styles for Pace: Visual Loading Feedback */
+.pace {
+  -webkit-pointer-events: none;
+  pointer-events: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+
+.pace-inactive {
+  display: none;
+}
+
+.pace-active {
+  display: block;
+}
+
+.pace .pace-progress {
+  background: #0a77d5; 
+  border-bottom: 1px solid #0c80e5; 
+  position: fixed;
+  z-index: 2000;
+  top: 0;
+  right: 100%;
+  width: 100%;
+  height: 3px;
+}
+
+/* Task Description Links */
+.btn-warning a, .k-primary a{
+    color:inherit; /* same color as the parent span */
+    font-weight: bold;
+}
+
+/*validation*/
+input[type="text"].ng-invalid{
+    border-left: 3px solid #ff0000;
+    background-color: #FFEBD6;
+}
+
+/*non-bootstrap*/
+.label150 { display: inline-flex;width: 150px;}
+
+/* Conversation View*/
+.truncateSingleLineNoWrap {
+  width: 100%;
+  padding: 0 15px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  box-sizing: border-box;
+}
+
+a:hover {
+    text-decoration: none !important;
+}
+
+body.conversationView{
+    padding: 15px 10px;
+}
+
+.conversationHeaderLeft {
+    text-align: left;
+    float: left;
+    padding: 0 15px;
+}
+
+.conversationHeaderRight {
+    text-align: right;
+    float: right;
+    padding: 0 15px;
+}
+
+.conversationHeaderYammer {
+    text-align: left;
+    padding: 0 15px;
+    height: 100%;
+}
+
+
+.menuButtonStartContainer {
+    float: right;
+}

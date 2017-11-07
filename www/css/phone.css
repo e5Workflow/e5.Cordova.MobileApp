@@ -1,0 +1,4 @@
+﻿.k-button img{ display:none}
+.k-button .buttonText {display: inline-block;margin: 0 0 0 2px; font-size: 10pt;}
+.showButtonImages img{display: inline-block;width: 16px;margin: 0 0 4px 0;}
+.showButtonImages .buttonText {display: none;}

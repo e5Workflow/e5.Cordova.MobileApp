@@ -1,0 +1,49 @@
+<md-content layout="row" layout-wrap class="TaskContent">
+
+    <e5-classification classification='$ctrl.classification' ng-if="$ctrl.showclassification==='true' && classificationDataLoaded && task.category1Id"></e5-classification>
+
+
+    <div flex-xs="100" flex-sm="33" flex="25" ng-if="!hidetaskpanel" id="taskPanelBarColumn" style='padding: 5px;'>
+        <ul id="taskPanelBar"></ul>
+    </div>
+    <div flex-xs="100" flex-sm="66" flex="75" id="taskPanelContentColumn" style='padding: 5px;'>
+        <p ng-if="taskDescription!==''" ng-class="{'btn-warning': task.completionDate != null, 'k-primary': task.completionDate == null}" style='padding: 10px 20px;'>
+            <span class="k-link" ng-bind-html="taskDescription | trust"></span>
+        </p>
+        <form id="e5TaskForm" name="e5TaskForm">
+            <!--DataType:
+            Input = 1
+            [Date] = 2
+            Text = 3
+            User = 4
+            GUID = 5
+            CaseNote = 6
+            List = 7
+            Lookup = 8
+            [Integer] = 9
+            Currency = 10
+            DateTime = 11
+            Reference = 12
+            SiteGroup = 13
+            Checkbox = 14
+            Form = 15
+            Link = 16
+            Grid = 17
+            -->
+            <md-content layout="row" layout-wrap>
+                <e5-field-set field-set-type="task" work-id="task.workId" task-id="task.id" watch-for-work-id-change="true"></e5-field-set>
+            </md-content>
+        </form>
+
+        <div class="clearfix" style='padding: 10px 0;'>
+            <div ng-if="task !== null && task.completionDate === null && hasDueTasks" class="buttons-wrap">
+                <e5-menu show-images="false" work-id="task.workId" task-id="task.id"></e5-menu>
+                <kendo-button id="saveTask" k-ng-disabled="e5TaskForm.$invalid" class="k-primary" ng-click="saveTaskOnClick()"><div class="buttonText" translate="Save"></div></kendo-button>
+                <kendo-button id="completeTask" k-ng-disabled="e5TaskForm.$invalid" class="k-primary" ng-click="completeTaskOnClick()"><div class="buttonText" translate="Complete"></div></kendo-button>
+            </div>
+            <div ng-if="isGetNext && !hasDueTasks" class="buttons-wrap">
+                <kendo-button id="getNext" class="k-primary" ng-click="getNextOnClick()"><div class="buttonText" translate="GetNext"></div></kendo-button>
+            </div>
+        </div>
+    </div>
+</md-content>

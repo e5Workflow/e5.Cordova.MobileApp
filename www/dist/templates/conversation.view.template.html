@@ -1,0 +1,114 @@
+<div class="container">
+    <div>
+        <div class="row">
+            <div class="col-xs-12 col-md-12 text-right">
+                <kendo-button id="newYammerConversation" class="k-primary" ng-click="$ctrl.newYammerPostOnClick()" ng-if="ShowYammerInConversationView && !hasYammerFeed" translate="New yammer post"></kendo-button>
+                <kendo-button id="newConversation" class="k-primary" ng-click="$ctrl.newConversationOnClick()" translate="New conversation"></kendo-button>
+                <kendo-button id="refreshComponent" class="k-primary" ng-click="$ctrl.refreshComponentClick()" translate="Refresh"></kendo-button>
+            </div>
+        </div>
+    
+        <div class="row" ng-if="$ctrl.localSettings.showNewConversation">
+            <e5-email work-id="workId" from="from" to="$ctrl.localSettings.newTo" cc="cc" bcc="bcc" subject="$ctrl.localSettings.newSubject" thread-id=""
+                      show-attachments="true" show-templates="true" hide-cc="false" body-html="$ctrl.localSettings.newBody" default-attachments="$ctrl.localSettings.newAttachments" default-template="defaultTemplate" message-type="'normal'" email-id="''"  on-sent="onSent($email)"></e5-email>
+        </div>
+    </div>
+    <br />
+    
+    <div ng-if="ShowYammerInConversationView">
+        <div class="row" ng-show="$ctrl.localSettings.showNewYammerPost && !hasYammerFeed">
+            <e5-yammer-post work-id="workId"></e5-yammer-post>
+        </div>
+
+        <div class="row">
+            <e5-yammer-feed work-id="workId" has-yammer-feed="hasYammerFeed"></e5-yammer-feed>
+        </div>
+    </div>
+
+
+    <!-- Display the conversation list //-->
+    <div ng-repeat="conversation in $ctrl.conversations | orderBy:'-lastActivity.received'">
+        <div class="row">
+            <div class="panel-group" id="conversation_{{conversation.id}}">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <div class="row" style="position: relative;">
+                            <a data-toggle="collapse" data-parent="#conversation_{{conversation.id}}" data-target="#collapse_{{conversation.id}}">
+                                <div class="conversationHeaderLeft">{{conversation.author}}</div>
+                                <div class="conversationHeaderRight" style="padding: 0 30px;">
+                                    <!--<span>{{conversation.lastActivity.received | date:'MMM d, y h:mm:ss a'}}</span>-->
+                                    <span am-time-ago="conversation.lastActivity.received"></span>
+                                    <span ng-if="$first">&nbsp;&nbsp;</span>
+                                    <span ng-if="$first" class="label label-success">Latest Conversation</span>
+                                    &nbsp;&nbsp;<span class="badge">{{conversation.messages.length}}</span>
+                                </div>
+                                <div class="conversationHeaderLeft" style="clear: left;">{{conversation.subject}}</div>
+                                <div class="conversationSnippet truncateSingleLineNoWrap" style="text-decoration: none;">{{conversation.lastActivity.emailBodyPlainText}}</div>
+                            </a>
+                            <a style="position: absolute; top: 5px; right: 10px; text-decoration: none;" ng-if="conversation.hasAttachments" class="glyphicon glyphicon-paperclip" target="_top" ng-href="{{$ctrl.AttachmentViewerUrl(conversation.workId,null,'')}}"></a>
+
+                        </div>
+                    </div>
+
+
+                    <div id="collapse_{{conversation.id}}" class="k-panel" ng-class="$ctrl.conversations.length == 1 || conversation.showConversation ? 'collapse in':'collapse'">
+                        <div class="panel-body conversationBlock" conversationId="{{conversation.id}}">
+                            <!-- If the conversation has more than 1 thread, then display a threaded view //-->
+                            <div class="col-md-12" ng-repeat="message in conversation.messages | orderBy:'-'">
+                                <div class="row" class="panel-group" id="message_{{message.id}}">
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            <div class="row">
+                                                <!-- If the thread is not the last thread in the conversation, then make the thread collapseble and collapsed //-->
+                                                <a data-toggle="collapse" data-parent="#message{{message.id}}" data-target="#collapse_message_{{message.id}}">
+                                                    <div class="conversationHeaderLeft" title="{{message.from}}"><strong>{{message.author}}</strong>
+                                                        <div ng-show="message.showMessage"><span class="To" translate="To"></span>: <span>{{message.to}}</span></div>
+                                                        <div ng-show="message.showMessage && message.cc"><span class="Cc" translate="CC"></span>: <span>{{message.cc}}</span></div>
+                                                    </div>
+                                                    <div class="conversationHeaderRight">
+                                                        <span ng-if="message.attachments.length !== 0" class="glyphicon glyphicon-paperclip"></span> {{message.received | date:'MMM d, y h:mm:ss a'}}
+                                                        &nbsp;&nbsp;<span ng-if="$first" class="label label-success">Latest Message</span>
+                                                    </div>
+
+                                                    <div ng-hide="message.showMessage" class="conversationSnippet truncateSingleLineNoWrap" style="text-decoration: none;">{{message.body}}</div>
+
+
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div id="collapse_message_{{message.id}}" class="k-panel"  ng-class="message.showMessage || ($first && message.showMessage == undefined) ? 'collapse in':'collapse'">
+                                            <div class="col-xs-12 col-md-12 text-left">
+                                                <br />
+                                                <!-- reply button //-->
+                                                <div ng-if="$first" class="btn-group pull-right">
+                                                    <button type="button" class="btn btn-link btn-xs" ng-click="$ctrl.replyEmailOnClick(conversation, message, 'reply')"><span class="glyphicon glyphicon-share-alt"></span> Reply</button>&nbsp;&nbsp;
+                                                    <button type="button" class="btn btn-link btn-xs" ng-click="$ctrl.replyEmailOnClick(conversation, message, 'all')"><span class="glyphicon glyphicon-share"></span> Reply All</button>&nbsp;&nbsp;
+                                                    <button type="button" class="btn btn-link btn-xs" ng-click="$ctrl.replyEmailOnClick(conversation, message, 'forward')"><span class="glyphicon glyphicon-forward"></span> Forward</button>
+                                                </div>
+                                                <!-- The reply form for the conversation //-->
+                                                <div role="form" ng-hide="message.HideReplyNoInit" ng-if="message.ShowReply && $first">
+                                                    <e5-email id="reply-to-{{message.id}}" work-id="workId" from="from" to="message.replyTo" cc="message.replyCc" bcc="message.replyBcc" subject="message.replySubject" thread-id="message.threadId"
+                                                              body-html="message.replyBodyHtml" default-attachments="message.replyAttachments" default-template="defaultTemplate" show-attachments="true" show-templates="true" append-original="true" original-html="$ctrl.localSettings.originalBodyHtml" hide-cc="false" message-type="message.messageType" email-id="message.emailId" on-sent="onReplySent(message)"></e5-email>
+                                                </div>
+                                                <blockquote>
+                                                    <small ng-if="!$last" class="messageBlock" conversationId="{{conversation.id}}" messageId="{{message.id}}" workId="{{message.workId}}" ng-bind-html="$ctrl.trustHtml(message.bodyHtml)"></small>
+                                                    <small ng-if="$last" class="messageBlock firstMessageInThread" conversationId="{{conversation.id}}" messageId="{{message.id}}" workId="{{message.workId}}" ng-bind-html="$ctrl.trustHtml(message.replyBodyHtml)"></small>
+                                                    <small ng-repeat="attachment in message.attachments" class="attachments" conversationId="{{conversation.id}}" messageId="{{message.id}}" workId="{{message.workId}}">
+                                                        <a target="_top" ng-href="{{$ctrl.AttachmentViewerUrl(attachment.workId,'FindWork',attachment.workId + ';' + attachment.id)}}"><span class="glyphicon glyphicon-paperclip"></span>&nbsp;{{attachment.documentName}}</a>
+                                                    </small>
+                                                </blockquote>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

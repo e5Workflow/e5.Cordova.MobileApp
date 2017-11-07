@@ -1,0 +1,121 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <!--
+        Customize the content security policy in the meta tag below as needed. Add 'unsafe-inline' to default-src to enable inline JavaScript.
+        For details, see http://go.microsoft.com/fwlink/?LinkID=617521
+    -->
+    <meta http-equiv="Content-Security-Policy" content="default-src * 'self' http://e5landing.e5workflow.com data: gap: https://ssl.gstatic.com 'unsafe-eval' 'unsafe-inline'; img-src * 'self' data: https:;style-src 'self' 'unsafe-inline'; media-src *">
+
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <title>e5MobileTasks</title>
+</head>
+<body>
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="scripts/platformOverrides.js"></script>
+    <div class="app">
+        <div id="deviceready" class="blink">
+            <p class="event listening">Loading...</p>
+        </div>
+    </div>
+
+    <!-- // -->
+    <!-- || e5 Anywhere recommended scripts and CSS (try to keep this the same for all the demos) -->
+    <!-- jquery // Required -->
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/jquery-ui/jquery-ui.min.js"></script>
+
+    <!-- angular // Required -->
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
+    <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+    <script src="bower_components/angular-translate/angular-translate.min.js"></script>
+    <script src="bower_components/angular-translate-handler-log/angular-translate-handler-log.js"></script>
+    <script src="bower_components/angular-translate-loader-static-files/angular-translate-loader-static-files.min.js"></script>
+    <script src="bower_components/ngstorage/ngStorage.js"></script>
+    <script src="bower_components/moment/moment.js"></script>
+    <script src="bower_components/angular-moment/angular-moment.js"></script>
+    <script src="bower_components/angular-file-upload/dist/angular-file-upload.js"></script>
+
+    <!-- tether // Optional -->
+    <link href="bower_components/tether/dist/css/tether.css" rel="stylesheet" />
+    <script src="bower_components/tether/dist/js/tether.min.js"></script>
+
+    <!-- bootstrap // Optional -->
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap-theme.css" />
+    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+
+    <!-- ngToast // Required -->
+    <link href="bower_components/ngtoast/dist/ngToast.css" rel="stylesheet" />
+    <link href="bower_components/ngtoast/dist/ngToast-animations.css" rel="stylesheet" />
+    <script src="bower_components/ngtoast/dist/ngToast.js"></script>
+
+    <!-- AngularJS Material // Required -->
+    <link rel="stylesheet" href="bower_components/angular-material/angular-material.css">
+
+    <!-- AngularJS Material // Required -->
+    <script src="bower_components/angular-aria/angular-aria.min.js"></script>
+    <script src="bower_components/angular-material/angular-material.min.js"></script>
+
+    <!-- kendo // Required -->
+    <link rel="stylesheet" href="kendoUI/styles/kendo.common-bootstrap.min.css">
+    <link rel="stylesheet" href="kendoUI/styles/kendo.common.min.css" />
+    <link rel="stylesheet" href="kendoUI/styles/kendo.silver.min.css" id="ActiveKendoStyle" />
+    <link rel="stylesheet" href="kendoUI/styles/kendo.silver.mobile.min.css" id="ActiveKendoStyleMobile" />
+    <link rel="Stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css" />
+
+    <script src="kendoUI/js/kendo.all.min.js"></script>
+        
+    <!-- e5Anywhere // Required -->
+    <link rel="stylesheet" href="dist/css/e5anywhere.min.css" />
+    <!-- inject:js -->
+    <script src="dist/js/e5anywhere.angular.all.js"></script>
+
+    <!-- endinject -->
+    <!--
+        Kendo doesn't obey browser culture settings, default is en-US.
+        Culture scripts must be included and culture must be set before the components are initialised
+    -->
+    <script src="kendoUI/js/cultures/kendo.culture.en-AU.min.js"></script>
+    <script>
+        kendo.culture("en-AU");
+        var kendostyle = queryStringParam('kendostyle');
+        if (kendostyle !== null && kendostyle !== "") {
+            $("#ActiveKendoStyle").attr("href", "kendoUI/styles/kendo." + kendostyle + ".min.css");
+            $("#ActiveKendoStyleMobile").attr("href", "kendoUI/styles/kendo." + kendostyle + ".mobile.min.css");
+        }
+    </script>
+    <!-- \\ -->
+    <!-- demo // Optional -->
+    <script src="app.config.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+
+    <script src="app.mobile.main.js"></script>
+
+    <div class="container-fluid" role="main" ng-app="app" ng-controller="ctrl">
+
+        <toast></toast>
+
+        <form class="form-horizontal small col-sm-9">
+            <div ng-if="!showMediaButtons" class="form-group">
+                <button class="k-button k-primary MobileButton" ng-click="onCreateWorkItem()"><span class="buttonIcon fa fa-chevron-circle-right"></span>Create New Claim</button>
+                <h4>Claim History</h4>
+                <e5-search options="searchOptions" on-open="onOpen($data)" on-attachment="onAttachment($data)"></e5-search>
+            </div>
+
+            <div ng-if="showMediaButtons" class="form-group">
+                <button class="k-button k-primary MobileButton" ng-click="capturePhoto();"><span class="buttonIcon fa fa-camera-retro"></span><span class="buttonText">Take a Photo</span></button>
+                <br /><br /><button class="k-button k-primary MobileButton" ng-click="getPhotoFromLibrary();"><span class="buttonIcon fa fa-paperclip"></span><span class="buttonText">Add Photo from Library</span></button>
+                <br /><br /><e5-task ng-if="showMediaButtons" showclassification="false"></e5-task>
+                <div id="photoPreview"></div>
+            </div>
+        </form>
+
+    </div>
+</body>
+</html>

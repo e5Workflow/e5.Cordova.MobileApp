@@ -1,0 +1,11 @@
+﻿.form-horizontal .control-label.text-left{
+    text-align: left;
+}
+
+.control-label{
+   text-align:left !important; 
+}
+
+.k-button img{ display:none}
+.k-button .buttonText {display: block;margin: 0 0 0 2px; font-size: 12pt;}
+.showButtonImages img{display: inline-block;width: 32px;margin: 4px 0 0 0;}
