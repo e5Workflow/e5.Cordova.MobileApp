@@ -28,6 +28,8 @@ Example of an Cordova Mobile app that leverage the e5 Anywhere Angular Component
 ### All the mobile application logic is contained in this javascript file:
 [app.mobile.main.js](../master/www/app.mobile.main.js)
 
-#### Note: Required Kendo libraries are not included in this public repository
-Contact e5 Workflow to get the full mobile application.
+
+
+##### *Note: Required Kendo libraries are not included in this public repository
+Contact e5 Workflow to get the full mobile application.*
 
