@@ -1,5 +1,5 @@
 # e5.Cordova.MobileApp
-Example of an Cordova Mobile app that leverage the e5 Anywhere Angular Components
+Example of a Cordova Mobile app that leverages the e5 Anywhere Angular Components
 
 ### Include the components in the index.html file:
 ```html
